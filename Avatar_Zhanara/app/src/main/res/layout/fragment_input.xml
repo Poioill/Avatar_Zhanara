@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ui.dashboard.InputFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_input"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/iconformain"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_load_photo_input"
+        android:layout_width="90dp"
+        android:layout_height="60dp"
+        android:text="load photo"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:cornerRadius="26dp"
+        android:layout_marginTop="10dp"
+        app:backgroundTint="#FAEA5C"
+        android:layout_gravity="center_horizontal"/>
+
+    <EditText
+        android:id="@+id/edit_name_surname"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:background="#D5E1E6"
+        android:layout_margin="12dp"
+        android:hint="Name and surname: "/>
+
+    <EditText
+        android:id="@+id/edit_telNumber"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="10dp"
+        android:background="#D5E1E6"
+        android:layout_margin="12dp"
+        android:hint="Tel number:"
+        android:inputType="phone"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save"
+        android:layout_width="90dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:text="SAVE"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:cornerRadius="26dp"
+        android:layout_marginTop="10dp"
+        app:backgroundTint="#FAEA5C"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_perehod"
+        android:layout_width="90dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:text="to list"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:cornerRadius="26dp"
+        android:layout_marginTop="10dp"
+        app:backgroundTint="#FAEA5C"
+        android:visibility="visible"
+        />
+
+</LinearLayout>
