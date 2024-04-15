@@ -96,22 +96,25 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
                             break;
                         case "message":
                             holder.binding.myMessage.setVisibility(View.VISIBLE);
-
-                            Intent emailIntent = new Intent(Intent.ACTION_SEND);
-                            emailIntent.setData(Uri.parse("mail to:"));
-                            emailIntent.setType("text/plain");
-                            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "My message");
-
-                            emailIntent.putExtra(Intent.EXTRA_TEXT, holder.binding.myMessage.getText().toString());
-                            try {
-                                holder.itemView.getContext()
-                                        .startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-                            } catch (android.content.ActivityNotFoundException ex) {
-                                Toast.makeText(holder.itemView.getContext(),
-                                        "There is no email client installed.",
-                                        Toast.LENGTH_LONG).show();
+                            String mess = holder.binding.myMessage.getText().toString();
+                            if (mess != null) {
+                                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                                emailIntent.setData(Uri.parse("mail to:"));
+                                emailIntent.setType("text/plain");
+                                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "My message");
+                                emailIntent.putExtra(Intent.EXTRA_TEXT, holder.binding.myMessage.getText().toString());
+                                try {
+                                    holder.itemView.getContext()
+                                            .startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+                                } catch (android.content.ActivityNotFoundException ex) {
+                                    Toast.makeText(holder.itemView.getContext(),
+                                            "There is no email client installed.",
+                                            Toast.LENGTH_LONG).show();
+                                    is_passed = false;
+                                }
+                                break;
                             }
-                            break;
+
                         case "delete":
                             AlertDialog alertDialog = new AlertDialog
                                     .Builder(holder.binding.getRoot().getContext()).create();
@@ -144,6 +147,9 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
                 }
             });
             popup.show();
+            if (is_passed = true){
+                holder.binding.myMessage.setVisibility(View.GONE);
+            }
         });
     }
 
@@ -153,6 +159,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
 
         return list.size();
     }
+
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
